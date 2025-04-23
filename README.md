@@ -37,6 +37,32 @@ By default, all usernames are available appart from the `banned_usernames` at li
 
 If you want to only allow certain usernames, in `only_usernames` at line `35`, set the boolean `only_usrs` to `true` at line `37`.
 
+## HTTPS
+
+It is absolutely necessary to activate `https` on this server.
+
+To do so, at the end of `main.go`, change from:
+
+```
+// NOT IN PRODUCTION
+err = http.ListenAndServe("0.0.0.0:" + port_run, mux)
+if err != nil {
+  fmt.Println("Failed to start server...")
+  fmt.Print(err)
+  return
+}
+```
+
+To:
+
+```
+// IN PRODUCTION
+err := http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
+if err != nil {
+    log.Fatalf("ListenAndServeTLS failed: %v", err)
+}
+```
+
 ## Is it very scalable ?
 
 No, because to much `UPDATE` SQL request.
