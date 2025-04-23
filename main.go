@@ -811,6 +811,11 @@ func DeleteFileHandler(db *sql.DB) http.HandlerFunc {
             w.Write([]byte("Something went wrong"))
             return
           } else {
+            err = os.Remove(username + "/" + filename)
+            if err != nil {
+              w.Write([]byte("Something went wrong"))
+              return
+            }
             http.Redirect(w, r, "/search/_" + username + "_" + password, http.StatusFound)
             return
           }
