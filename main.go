@@ -704,8 +704,6 @@ func UploadHandler(db *sql.DB) http.HandlerFunc {
         content_query := db.QueryRow("SELECT filename FROM " + username + " WHERE filename=?;", filename)
         err = content_query.Scan(&found_alrd_file)
         if err == nil {
-          fmt.Println("username: ", username)
-          fmt.Println("password: ", password)
           w.Write([]byte(`<b>Filename already taken</b><br><a href="../upload_page/_` + username + "_" + password + `">Go Back</a>`))
           return
         }
@@ -715,8 +713,6 @@ func UploadHandler(db *sql.DB) http.HandlerFunc {
           return
         }
         err = os.WriteFile(username + "/" + filename, fileBytes, 0644)
-        fmt.Println("username: ", username)
-        fmt.Println("filename: ", filename)
         _, err = db.Exec("INSERT INTO " + username + " VALUE (?);", filename)
         if err != nil {
           fmt.Println(err)
