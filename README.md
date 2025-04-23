@@ -45,11 +45,13 @@ If you want to only allow certain usernames, in `only_usernames` at line `35`, s
 
 It is absolutely necessary to activate `https` on this server.
 
-To do so, at the end of `main.go`, change from:
+If you are not using a reverse proxy like `NGINX` that handles `https` (configured via certbot for example), do the following:
+
+at the end of `main.go`, change from:
 
 ```
 // NOT IN PRODUCTION
-err = http.ListenAndServe("0.0.0.0:" + port_run, mux)
+err = http.ListenAndServe("127.0.0.1:" + port_run, mux)
 if err != nil {
   fmt.Println("Failed to start server...")
   fmt.Print(err)

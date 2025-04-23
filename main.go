@@ -874,7 +874,7 @@ func main() {
 
   
   // NOT IN PRODUCTION
-  err = http.ListenAndServe("0.0.0.0:" + port_run, mux)
+  err = http.ListenAndServe("127.0.0.1:" + port_run, mux)
   if err != nil {
     fmt.Println("Failed to start server...")
     fmt.Print(err)
