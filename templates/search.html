@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Search Page</title>
+</head>
+<body>
+        <b>Search Page</b>
+        <br>
+        <a href="{{.NextURL}}">Reload</a>
+        <br>
+        <a href="../upload_page/{{.NextURL}}">Upload</a>
+    <br><br>
+    <center>
+        <form action="/search_pattern/{{.NextURL}}" method="POST">
+          <textarea name="myPattern" rows="1" cols="18"></textarea>
+          <br>
+          <input type="submit" value="Search">
+        </form>
+    </center>
+    <br><br>
+    <table>
+      <tr>
+        <th>Filename</th>
+        <th>Delete</th>
+      </tr>
+    {{range $val := .FilesName}}
+    <tr>
+        <td><a href="../download/{{$val}}{{$.NextURL}}" download>{{$val}}</a></td>
+        <td><a href="../delete/{{$val}}{{$.NextURL}}">Delete</a></td>
+    </tr>
+    {{end}}
+    </table>
+</body>
