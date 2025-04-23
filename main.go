@@ -26,7 +26,7 @@ var ref_spechr = [24]uint8{'!', '.', ':', ';', '\\', '-', '%', '*', ',', '_', '/
 
 var ref_temp_password = [11]uint8{'-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 
-var unix_allowed_filename_char = [64]uint8{ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '.', '_'}
+var unix_allowed_filename_char = [63]uint8{ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '.'}
 
 var banned_char_username = [22]uint8{'_', ' ', '/', '?', '$', 
                            '&', '@', '#', '.', ',', '\\', '|', 
@@ -148,7 +148,7 @@ func ValidateFilename(filename string) bool {
   for i := 0; i < len(filename); i++ {
     in_it = false
     cur_chr = filename[i]
-    for i2 = 0; i2 < 64; i2++ {
+    for i2 = 0; i2 < 63; i2++ {
       if cur_chr == unix_allowed_filename_char[i2] {
         in_it = true
         break
