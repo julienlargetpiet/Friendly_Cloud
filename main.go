@@ -15,7 +15,6 @@ import (
 const port_run string = "8080"
 const secret_key string = "N1PCdw3M2B1TfJhoaY2mL736p2vCUc47"
 var db *sql.DB
-var max_files = 150
 var templates = template.Must(template.ParseFiles("templates/search.html",
                                           "templates/upload.html"))
 
@@ -876,13 +875,21 @@ func main() {
 
   mux.Handle("/static/", 
             http.FileServer(http.Dir(".")))
- 
+
+  
+  // NOT IN PRODUCTION
   err = http.ListenAndServe("0.0.0.0:" + port_run, mux)
   if err != nil {
     fmt.Println("Failed to start server...")
     fmt.Print(err)
     return
   }
+
+  // IN PRODUCTION
+  //err := http.ListenAndServeTLS(":443", "cert.pem", "key.pem", nil)
+  //if err != nil {
+  //    log.Fatalf("ListenAndServeTLS failed: %v", err)
+  //}
 
 }
 
