@@ -13,3 +13,16 @@ So, everytime the user get out of the website, he is disconnected.
 And he has to click only on the website link to go back for example if he does not want to be disconnected.
 
 Because the server does not communicate an authentication cookie, and that pasing a password by URL is not secure, each time the user connects to the account, a temporary random password is generated only available for next connection on the next page. When he connects to the next page, the same mechanism is applied until the user get out of the website. 
+
+# Setting Up the server
+
+## Database
+
+Using `MySQL (5.7+)` or `Mariadb (10.5+)`
+
+```
+CREATE DATABASE friendly_cloud;
+CREATE TABLE credentials (username VARCHAR(15), password VARCHAR(16), temp_password TINYTEXT);
+```
+
+
