@@ -12,4 +12,4 @@ So, everytime the user get out of the website, he is disconnected.
 
 And he has to click only on the website link to go back for example if he does not want to be disconnected.
 
-Because the server does not communicate an authentication cookie, and that pasing a password by URL is not secure, each time the user connects to the account, a temporary random password is generated only available for next connection on the next page. When he connects to the next page, the same mechanis is applied until the user get out of the website. 
+Because the server does not communicate an authentication cookie, and that pasing a password by URL is not secure, each time the user connects to the account, a temporary random password is generated only available for next connection on the next page. When he connects to the next page, the same mechanism is applied until the user get out of the website. 
