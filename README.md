@@ -29,11 +29,17 @@ CREATE TABLE credentials (username VARCHAR(15), password VARCHAR(16), temp_passw
 
 Modify the default `AES key` at line `16` of `main.go` (must be 32 of characters)
 
+This key is used to cipher the random temporary password.
+
 ## Username
 
 By default, all usernames are available appart from the `banned_usernames` at line `54`
 
 If you want to only allow certain usernames, in `only_usernames` at line `35`, set the boolean `only_usrs` to `true` at line `37`.
+
+## Is it very scalable ?
+
+No, because to much `UPDATE` SQL request.
 
 
 
