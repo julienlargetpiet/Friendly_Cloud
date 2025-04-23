@@ -1,5 +1,5 @@
 # Friendly_Cloud
 
-![logo.jpg](logo.jpg)
+![logo.jpg](static/logo.jpg)
 
 
