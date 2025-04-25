@@ -164,9 +164,14 @@ func GoodUsername(given_username string) bool {
   if len(given_username) == 0 {
     return false
   }
+  var i2 int
+  var cur_val uint8
   for i:= 0; i < len(given_username); i++ {
-    if given_username[i] == ' ' {
-      return false
+    cur_val = given_username[i]
+    for i2 = 0; i2 < 22; i2++ {
+      if cur_val == banned_char_url[i2] {
+        return false
+      }
     }
   }
   for _, usr := range banned_usernames {
@@ -404,7 +409,7 @@ func NotValidConnectionHandler(w http.ResponseWriter, r *http.Request) {
     return
   } else {
     w.Write([]byte(`<b>Username or Password incorrect</b><br>
-      <a href="http://0.0.0.0:` + port_run + `/login/">Go Back</a>`))
+      <a href="../login/">Go Back</a>`))
   }
 }
 
