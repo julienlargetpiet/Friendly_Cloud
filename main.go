@@ -14,7 +14,7 @@ import (
 
 const port_run string = "8080"
 const secret_key string = "N1PCdw3M2B1TfJhoaY2mL736p2vCUc47"
-var db *sql.DB
+//var db *sql.DB
 var templates = template.Must(template.ParseFiles("templates/search.html",
                                           "templates/upload.html"))
 
@@ -117,7 +117,6 @@ func Int32ToString(x *int32) string {
 }
 
 func StringToInt32(x string) int32 {
-  var ref_nb = [10]uint8{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
   var rtn_val int32 = 0
   var lngth int = len(x)
   var i2 int32
