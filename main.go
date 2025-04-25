@@ -471,7 +471,7 @@ func AlreadyNewAccountHandler(w http.ResponseWriter, r *http.Request) {
     return
   }
   w.Write([]byte(`<b>Username already used</b><br>
-  <a href="http://0.0.0.0:` + port_run + `/create_account/">Go back</a>`))
+  <a href="../create_account/">Go back</a>`))
 }
 
 func BadPasswordNewAccountHandler(w http.ResponseWriter, r *http.Request) {
@@ -483,7 +483,7 @@ func BadPasswordNewAccountHandler(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("<b>404, Page Not Found</b>"))
     return
   }
-  w.Write([]byte(`<b>Password Must be 16 characters long with at least numbers and letters and allowed special characters</b> <br> <a href="http://0.0.0.0:` + port_run + `/create_account/">Go back</a>`))
+  w.Write([]byte(`<b>Password Must be 16 characters long with at least numbers and letters and allowed special characters</b> <br> <a href="../create_account/">Go back</a>`))
 }
 
 func BadUsernameNewAccountHandler(w http.ResponseWriter, r *http.Request) {
@@ -495,7 +495,7 @@ func BadUsernameNewAccountHandler(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("<b>404, Page Not Found</b>"))
     return
   }
-  w.Write([]byte(`<b>bad username, maybe banned or empty</b> <br> <a href="http://0.0.0.0:` + port_run + `/create_account/">Go back</a>`))
+  w.Write([]byte(`<b>bad username, maybe banned or empty</b> <br> <a href="../create_account/">Go back</a>`))
 }
 
 func NewAccountHandler(db *sql.DB) http.HandlerFunc {
