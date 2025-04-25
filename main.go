@@ -169,7 +169,7 @@ func GoodUsername(given_username string) bool {
   for i:= 0; i < len(given_username); i++ {
     cur_val = given_username[i]
     for i2 = 0; i2 < 22; i2++ {
-      if cur_val == banned_char_url[i2] {
+      if cur_val == banned_char_username[i2] {
         return false
       }
     }
