@@ -32,7 +32,7 @@ var banned_char_username = [22]uint8{'_', ' ', '/', '?', '$',
                            '&', '@', '#', '.', ',', '\\', '|', 
                            '{', '}', '(', ')', '^', '<', '>', '%', ':'}
 
-var only_usernames = []string{"Arkose", "Julien", "Lucas"}
+var only_usernames = []string{"Arkose", "Julien", "Lucas", "main", "static", "templates"}
 
 var only_usrs = false
 
