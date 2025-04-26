@@ -32,7 +32,7 @@ var banned_char_username = [22]uint8{'_', ' ', '/', '?', '$',
                            '&', '@', '#', '.', ',', '\\', '|', 
                            '{', '}', '(', ')', '^', '<', '>', '%', ':'}
 
-var only_usernames = []string{"Arkose", "Julien", "Lucas", "main", "static", "templates"}
+var only_usernames = [3]string{"Arkose", "Julien", "Lucas"}
 
 var only_usrs = false
 
@@ -51,7 +51,7 @@ type UploadStruct struct {
   NextURL string
 }
 
-var banned_usernames = [6]string{"Root", "ROOT", "root", "Admin", "ADMIN", "admin"}
+var banned_usernames = [9]string{"Root", "ROOT", "root", "Admin", "ADMIN", "admin", "main", "static", "templates"}
 
 func ConnectDatabase() (*sql.DB, error) {
   var credentials = "kvv:1234@(localhost:3306)/friendly_cloud"
