@@ -254,7 +254,7 @@ func GoodPassword(given_password string) bool {
 
 func EvaluateConnectionPassword(given_password *string, username *string, db *sql.DB) bool {
   var real_password string
-  username_query := db.QueryRow("SELECT password FROM credentials WHERE username = ?;", username)
+  username_query := db.QueryRow("SELECT password FROM credentials WHERE BINARY username = ?;", username)
   err := username_query.Scan(&real_password)
   if err != nil {
     fmt.Println(err)
