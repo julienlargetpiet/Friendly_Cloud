@@ -51,7 +51,7 @@ type UploadStruct struct {
   NextURL string
 }
 
-var banned_usernames = [9]string{"Root", "ROOT", "root", "Admin", "ADMIN", "admin", "main", "static", "templates", "main.go"}
+var banned_usernames = [10]string{"Root", "ROOT", "root", "Admin", "ADMIN", "admin", "main", "static", "templates", "main.go"}
 
 func ConnectDatabase() (*sql.DB, error) {
   var credentials = "kvv:1234@(localhost:3306)/friendly_cloud"
